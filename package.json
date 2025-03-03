@@ -4,16 +4,20 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx watch src/server.ts"
   },
   "author": "kauan",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^5.0.0",
     "@types/node": "^22.13.8",
+    "prisma": "^6.4.1",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2"
   },
   "dependencies": {
-    "prisma": "^6.4.1"
+    "@prisma/client": "^6.4.1",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0"
   }
 }
