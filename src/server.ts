@@ -5,6 +5,7 @@ import 'dotenv/config';
 import passport from 'passport';
 import { notFoundRequest } from './routers/notFoundRequest';
 import { jwtStrategy } from './libs/passport/passport-jwt';
+import { errorHandler } from './routers/errorHandler';
 
 const app = express();
 app.use(express.json());
@@ -15,7 +16,8 @@ passport.use(jwtStrategy);
 app.use(passport.initialize());
 
 app.use("/", mainRouter);
-app.use(notFoundRequest)
+app.use(notFoundRequest);
+app.use(errorHandler);
 
 const port = process.env.PORT;
 

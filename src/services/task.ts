@@ -122,11 +122,11 @@ export const deleteTask = async (email: string, taskId: number) => {
     if (task.userId !== user.id) {
         return false;
     }
-    await prisma.task.delete({
-        where: { id: taskId },
-    })
     await prisma.subTask.deleteMany({
         where: { taskId },
+    })
+    await prisma.task.deleteMany({
+        where: { id: taskId },
     })
     return true;
 }
@@ -143,7 +143,7 @@ export const deleteSubTask = async (email: string, taskId: number, subTaskId: nu
     } else if (task.id !== subTask.taskId) {
         return false;
     }
-    await prisma.subTask.delete({
+    await prisma.subTask.deleteMany({
         where: { id: subTaskId },
     })
     return true;
