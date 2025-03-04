@@ -7,5 +7,5 @@ export const tokenJwt = (user: User) => {
         userId: user.id,
         email: user.email,
     }
-    return jwt.sign(payload, process.env.JWT_KEY as string, { expiresIn: "1 minute"})
+    return jwt.sign(payload, process.env.JWT_KEY as string, { expiresIn: "2 minutes"})
 }
